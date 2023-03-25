@@ -12,7 +12,7 @@ class Student:
     def __init__(self,root):
         self.root = root
         self.root.geometry("1530x790+0+0")
-        self.root.title("Face Recogniton System")
+        self.root.title("face_recognition_system")
 
         # =====================variables============
         self.var_dep=StringVar()
@@ -31,7 +31,7 @@ class Student:
         self.var_teacher=StringVar()
 
         # Background image
-        img4 = Image.open(r"C:\Users\magla\OneDrive\Desktop\Face Recognition Attendence System\Images\bg-image.jpg")
+        img4 = Image.open(r"Images\bg-image.jpg")
         img4 = img4.resize((1540,800),Image.ANTIALIAS)
         self.photoimg4 = ImageTk.PhotoImage(img4)
 
@@ -42,7 +42,7 @@ class Student:
         title_lbl.place(x=0,y=130,width=1530,height=40)
 
         # FirstImage
-        img1 = Image.open(r"C:\Users\magla\OneDrive\Desktop\Face Recognition Attendence System\Images\sms-1.png")
+        img1 = Image.open(r"Images\sms-1.png")
         img1 = img1.resize((500,130),Image.ANTIALIAS)
         self.photoimg1 = ImageTk.PhotoImage(img1)
 
@@ -50,7 +50,7 @@ class Student:
         f_lbl.place(x=0 , y=0 , width=500 , height=130)
 
         # SecondImage
-        img2 = Image.open(r"C:\Users\magla\OneDrive\Desktop\Face Recognition Attendence System\Images\image-2.png")
+        img2 = Image.open(r"Images\image-2.png")
         img2 = img2.resize((500,130),Image.ANTIALIAS)
         self.photoimg2 = ImageTk.PhotoImage(img2)
 
@@ -58,7 +58,7 @@ class Student:
         f_lbl.place(x=510,y=0,width=500,height=130)
 
         # ThirdImage
-        img3 = Image.open(r"C:\Users\magla\OneDrive\Desktop\Face Recognition Attendence System\Images\sms-2.png")
+        img3 = Image.open(r"Images\sms-2.png")
         img3 = img3.resize((520,130),Image.ANTIALIAS)
         self.photoimg3 = ImageTk.PhotoImage(img3)
 
@@ -71,7 +71,7 @@ class Student:
         Left_frame = LabelFrame(main_frame,bg="white",bd=2,relief=RIDGE,text="Student Details", font=("times new roman",12,"bold"))
         Left_frame.place(x=5 , y=0 , width=720 , height=610)
         
-        img_left = Image.open(r"C:\Users\magla\OneDrive\Desktop\Face Recognition Attendence System\Images\sms-detail.png")
+        img_left = Image.open(r"Images\sms-detail.png")
         img_left = img_left.resize((400,150),Image.ANTIALIAS)
         self.photoimg_left = ImageTk.PhotoImage(img_left)
 
@@ -248,7 +248,7 @@ class Student:
         Right_frame.place(x=740 , y=0 , width=740 , height=610)
          
         #  Image in right frame
-        img_right = Image.open(r"C:\Users\magla\OneDrive\Desktop\Face Recognition Attendence System\Images\rightimage.webp")
+        img_right = Image.open(r"Images\rightimage.webp")
         img_right = img_right.resize((400,150),Image.ANTIALIAS)
         self.photoimg_right = ImageTk.PhotoImage(img_right)
 
@@ -541,7 +541,7 @@ class Student:
                         break
                 cap.release()
                 cv2.destroyAllWindows()
-                messagebox.showinfo("Result","Generating data set completed successfully")
+                messagebox.showinfo("Result","Generating data set completed successfully",parent=self.root)
             except Exception as es:
                 messagebox.showerror("Error",f"Due to:{str(es)}",parent=self.root)
                         
