@@ -239,7 +239,7 @@ class Student:
         takePhotobtn.grid(row=1, column=0)
 
          #Update Photo Sample
-        UpdatePhotobtn = Button(button_frame2,text="Update Photo Sample",width=37,font=("times new roman",12,"bold"),bg="blue",fg="white")
+        UpdatePhotobtn = Button(button_frame2,command=self.generate_dataset,text="Update Photo Sample",width=37,font=("times new roman",12,"bold"),bg="blue",fg="white")
         UpdatePhotobtn.grid(row=1, column=1)
 
 
@@ -256,25 +256,25 @@ class Student:
         f_lbl.place(x=150,y=0,width=400, height=150)
 
         # ==================Search System=====================
-        search_frame = LabelFrame(Right_frame,bg="white",bd=2,relief=RIDGE,text="Search System", font=("times new roman",12,"bold"))
-        search_frame.place(x=5 , y=155 , width=726 , height=80)
+        # search_frame = LabelFrame(Right_frame,bg="white",bd=2,relief=RIDGE,text="Search System", font=("times new roman",12,"bold"))
+        # search_frame.place(x=5 , y=155 , width=726 , height=80)
 
-        search_label = Label(search_frame,text ="Search By:",font=("times new roman",12,"bold"),bg="red", fg="white")
-        search_label.grid(row=0,column=0,padx=10,pady=5,sticky=W)
+        # search_label = Label(search_frame,text ="Search By:",font=("times new roman",12,"bold"),bg="red", fg="white")
+        # search_label.grid(row=0,column=0,padx=10,pady=5,sticky=W)
 
-        search_combo = ttk.Combobox(search_frame,font=("times new roman",12,"bold"),width =15,state="readonly")
-        search_combo["values"]=("Select ", "Roll_No", "Phone_No")
-        search_combo.current(0)
-        search_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
+        # search_combo = ttk.Combobox(search_frame,font=("times new roman",12,"bold"),width =15,state="readonly")
+        # search_combo["values"]=("Select ", "Roll_No", "Phone_No")
+        # search_combo.current(0)
+        # search_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
 
-        search_entry=ttk.Entry(search_frame,width=17,font=("times new roman",12,"bold"))
-        search_entry.grid(row=0,column=2,padx=10,pady=5,sticky=W)
+        # search_entry=ttk.Entry(search_frame,width=17,font=("times new roman",12,"bold"))
+        # search_entry.grid(row=0,column=2,padx=10,pady=5,sticky=W)
 
-        search_btn = Button(search_frame,text="Search",width=15,font=("times new roman",12,"bold"),bg="blue",fg="white")
-        search_btn.grid(row=0, column=3, padx=4)
+        # search_btn = Button(search_frame,text="Search",width=15,font=("times new roman",12,"bold"),bg="blue",fg="white")
+        # search_btn.grid(row=0, column=3, padx=4)
 
-        showAll_btn = Button(search_frame,text="Show All",width=15,font=("times new roman",12,"bold"),bg="blue",fg="white")
-        showAll_btn.grid(row=0, column=4, padx=4)
+        # showAll_btn = Button(search_frame,text="Show All",width=15,font=("times new roman",12,"bold"),bg="blue",fg="white")
+        # showAll_btn.grid(row=0, column=4, padx=4)
 
         # ===========================Table Frame===========================
         table_frame = Frame(Right_frame,bg="white",bd=2,relief=RIDGE)

@@ -1,11 +1,16 @@
 from tkinter import*
+import tkinter
 from tkinter import ttk
 from PIL import Image,ImageTk
 from student import Student
 import os
+from time import strftime
+from datetime import datetime
 from train import Train
 from face_recognition import Face_Recognition
 from attendance import Attendance
+from dev import Developer
+from help import Help
 
 
 class Face_Recognition_System:
@@ -22,8 +27,18 @@ class Face_Recognition_System:
         bg_img= Label(self.root ,image=self.photoimg4)
         bg_img.place(x=0,y=0,width=1540,height=800)
 
-        title_lbl = Label(bg_img,text="FACE RECOGNITION ATTENDANCE SYSTEM SOFTWARE" , font=("times new roman" , 35 , "bold"),bg="white",fg="red")
+        title_lbl = Label(bg_img,text="BIOMETRIC ATTENDANCE SYSTEM SOFTWARE" , font=("times new roman" , 35 , "bold"),bg="white",fg="red")
         title_lbl.place(x=0,y=180,width=1530,height=50)
+
+        # ==================time============
+        def time():
+            string = strftime('%H:%M:%S %p')
+            lbl.config(text = string)
+            lbl.after(1000, time)
+
+        lbl=Label(title_lbl,font=("times new roman" , 14 , "bold"),bg="white",fg="blue")
+        lbl.place(x=0,y=0,width=110,height=50)
+        time()
 
         # FirstImage
         img1 = Image.open(r"Images\image-1.jpg")
@@ -88,10 +103,10 @@ class Face_Recognition_System:
         img8 = img8.resize((220,220),Image.ANTIALIAS)
         self.photoimg8 = ImageTk.PhotoImage(img8)
 
-        b2=Button(bg_img,image=self.photoimg8,cursor="hand2")
+        b2=Button(bg_img,image=self.photoimg8,cursor="hand2",command=self.help_desk)
         b2.place(x=1100,y=250 , width=220,height=220)
 
-        b2_1=Button(bg_img,text="Help Desk",cursor="hand2",font=("times new roman" , 15 , "bold"),bg="darkblue",fg="white")
+        b2_1=Button(bg_img,text="Help Desk",cursor="hand2",command=self.help_desk,font=("times new roman" , 15 , "bold"),bg="darkblue",fg="white")
         b2_1.place(x=1100,y=450 , width=220,height=40)
 
          # Train data
@@ -121,10 +136,10 @@ class Face_Recognition_System:
         img11 = img11.resize((220,220),Image.ANTIALIAS)
         self.photoimg11 = ImageTk.PhotoImage(img11)
 
-        b2=Button(bg_img,image=self.photoimg11,cursor="hand2")
+        b2=Button(bg_img,image=self.photoimg11,cursor="hand2",command=self.developer_data)
         b2.place(x=800,y=520 , width=220,height=220)
 
-        b2_1=Button(bg_img,text="Developer",cursor="hand2",font=("times new roman" , 15 , "bold"),bg="darkblue",fg="white")
+        b2_1=Button(bg_img,text="Developer",cursor="hand2",command=self.developer_data,font=("times new roman" , 15 , "bold"),bg="darkblue",fg="white")
         b2_1.place(x=800,y=720 , width=220,height=40)
 
         # Exit
@@ -132,14 +147,21 @@ class Face_Recognition_System:
         img12 = img12.resize((220,220),Image.ANTIALIAS)
         self.photoimg12 = ImageTk.PhotoImage(img12)
 
-        b2=Button(bg_img,image=self.photoimg12,cursor="hand2")
+        b2=Button(bg_img,image=self.photoimg12,cursor="hand2",command=self.iExit)
         b2.place(x=1100,y=520 , width=220,height=220)
 
-        b2_1=Button(bg_img,text="Exit",cursor="hand2",font=("times new roman" , 15 , "bold"),bg="darkblue",fg="white")
+        b2_1=Button(bg_img,text="Exit",cursor="hand2",command=self.iExit,font=("times new roman" , 15 , "bold"),bg="darkblue",fg="white")
         b2_1.place(x=1100,y=720 , width=220,height=40)
 
     def open_img(self):
         os.startfile("data")
+
+    def iExit(self):
+        self.iExit=tkinter.messagebox.askyesno("Face Recognition","Are you sure",parent=self.root)
+        if self.iExit>0:
+            self.root.destroy()
+        else:
+            return
 
      # =====================Function Buttons====================
 
@@ -159,7 +181,13 @@ class Face_Recognition_System:
         self.new_window=Toplevel(self.root)
         self.app = Attendance( self.new_window)
 
- 
+    def developer_data(self):
+        self.new_window=Toplevel(self.root)
+        self.app = Developer( self.new_window)
+
+    def help_desk(self):
+        self.new_window=Toplevel(self.root)
+        self.app = Help( self.new_window)
 
 if __name__ == "__main__":
     root = Tk()
